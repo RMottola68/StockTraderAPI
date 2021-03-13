@@ -55,8 +55,10 @@ router.delete('/:id', async function(req, res, next) {
 });
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a stock');
+router.get('/', async function(req, res, next) {
+  let items =  await Portfolio.findAll({});
+  console.log(items);
+  res.send(items);
 });
 
 module.exports = router;

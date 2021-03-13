@@ -3,8 +3,10 @@ var router = express.Router();
 const {Wallet} = require('../lib/models');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a value');
+router.get('/', async function(req, res, next) {
+  let currentWallet = await Wallet.findOne({});
+  console.log(currentWallet)
+  res.json(currentWallet);
 });
 
 //CREATE
